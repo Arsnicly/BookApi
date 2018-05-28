@@ -1,5 +1,5 @@
 import turtle as t
-t.color ('blue')
+t.color ('green')
 t.shape ('turtle')
 t.speed (3)
 
