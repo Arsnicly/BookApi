@@ -21,16 +21,16 @@ json_string = (f.text)[31:-2]
 
 
 
-#text_file = open("Output.json", "w", encode = 'utf-8')
+text_file = open("Output.json", "w", encoding = 'utf-8')
 
-text_file = open("Output.json", "w")
+#text_file = open("Output.json", "w")
 text_file.write(json_string)
 text_file.close()
 
 
-#data = json.load(open('Output.json', encode = 'utf-8'))
+data = json.load(open('Output.json', encoding = 'utf-8'))
 
-data = json.load(open('Output.json'))
+#data = json.load(open('Output.json'))
 
 #pprint(data)
 
