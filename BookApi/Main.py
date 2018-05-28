@@ -2,37 +2,30 @@ import json
 from pprint import pprint
 import requests
 
-search = input('What do you want to search for: ')
-print ("")
 
 
+def search_for_json():
+    search = input('What do you want to search for: ')
+    print ("")
+    
+    link = "https://www.googleapis.com/books/v1/volumes?q="+search
+    f = requests.get(link)
+    json_string = (f.text)
+    
+    text_file = open("Output.json", "w", encoding = 'utf-8')
+    text_file.write(json_string)
+    text_file.close()
+    
+    return(json.load(open('Output.json', encoding = 'utf-8')))
 
-link = "https://www.googleapis.com/books/v1/volumes?q="+search+"&callback=handleResponse"
-#link = "https://www.googleapis.com/books/v1/volumes?q=harry+potter&callback=handleResponse"
-
-#print(link)
-
-f = requests.get(link)
-
-json_string = (f.text)[31:-2]
-
-
-
-
-
-
-text_file = open("Output.json", "w", encoding = 'utf-8')
-
-#text_file = open("Output.json", "w")
-text_file.write(json_string)
-text_file.close()
+#def extract_data_to_dict():
 
 
-data = json.load(open('Output.json', encoding = 'utf-8'))
+    
 
-#data = json.load(open('Output.json'))
+data = search_for_json()
 
-#pprint(data)
+
 
 title = "blank"
 isbn_type = "blank"
