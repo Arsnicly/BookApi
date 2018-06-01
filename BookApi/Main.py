@@ -21,11 +21,13 @@ def search_for_json():
 #def extract_data_to_dict():
 
 
-    
+  
 
 data = search_for_json()
 
+results = int(input("How many results do you want to print (1-10): "))
 
+print ("")
 
 title = "blank"
 isbn_type = "blank"
@@ -39,7 +41,7 @@ image_url = "blank"
 price = "blank"
 
 
-for x in range(10):
+for x in range(results):
 
 
     #Extracts each bit of data from the json file
